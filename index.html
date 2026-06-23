@@ -3,21 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexify · IT Company</title>
-  <!-- Font & Icons -->
+  <title>Nexify · Enterprise AI & Cloud</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
+    /* CSS Variables – dark MNC theme */
+    :root {
+      --bg-primary: #0b1219;
+      --bg-secondary: #111c2b;
+      --bg-card: #162231;
+      --bg-glass: rgba(20, 34, 50, 0.65);
+      --text-primary: #f0f4fa;
+      --text-secondary: #b0c7e0;
+      --accent-blue: #2b7aff;
+      --accent-teal: #00d4b6;
+      --border-subtle: #2a3a4e;
+      --radius-card: 24px;
+      --shadow-glow: 0 12px 40px rgba(0, 180, 255, 0.08);
+      --font: 'Inter', -apple-system, sans-serif;
+      --transition: all 0.25s ease;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: #f6f9fc;
-      color: #0b1e2e;
+      font-family: var(--font);
+      background: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
     }
 
@@ -27,15 +47,23 @@
       padding: 0 2rem;
     }
 
-    /* --- header / nav --- */
+    /* glassmorphism helper */
+    .glass {
+      background: var(--bg-glass);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* ----- NAV ----- */
     .navbar {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #e9edf2;
-      padding: 0.9rem 0;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(11, 18, 25, 0.8);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
     }
 
     .nav-flex {
@@ -43,80 +71,108 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .logo {
       font-size: 1.9rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #0b1e2e;
     }
 
     .logo i {
-      color: #2563eb;
-      margin-right: 0.4rem;
+      color: var(--accent-teal);
+      margin-right: 0.3rem;
     }
 
     .logo span {
-      color: #2563eb;
+      color: var(--accent-blue);
     }
 
     .nav-links {
       display: flex;
       gap: 2.2rem;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 0.95rem;
       align-items: center;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #1e293b;
-      transition: 0.2s;
+      color: var(--text-secondary);
+      transition: var(--transition);
     }
 
     .nav-links a:hover {
-      color: #2563eb;
+      color: white;
     }
 
     .nav-cta {
-      background: #2563eb;
+      background: var(--accent-blue);
       color: white !important;
       padding: 0.5rem 1.6rem;
-      border-radius: 40px;
+      border-radius: 60px;
       font-weight: 600;
-      transition: 0.2s;
+      transition: var(--transition);
+      border: none;
     }
 
     .nav-cta:hover {
-      background: #1d4ed8;
+      background: #1a5fdf;
       transform: scale(1.02);
+      color: white !important;
     }
 
-    /* --- hero --- */
+    /* ----- HERO ----- */
     .hero {
-      padding: 4rem 0 3rem;
+      padding: 5rem 0 4rem;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      line-height: 1.2;
+      line-height: 1.15;
       margin-bottom: 1.2rem;
     }
 
     .hero h1 i {
-      color: #2563eb;
+      color: var(--accent-teal);
       margin-right: 0.2rem;
     }
 
     .hero p {
       font-size: 1.25rem;
-      color: #334155;
-      max-width: 700px;
+      color: var(--text-secondary);
+      max-width: 680px;
       margin: 0 auto 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--bg-glass);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(43, 122, 255, 0.3);
+      padding: 0.9rem 3rem;
+      border-radius: 80px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 0 30px rgba(43, 122, 255, 0.15);
+    }
+
+    .hero-cta i {
+      margin-left: 0.6rem;
+      color: var(--accent-teal);
+    }
+
+    .hero-cta:hover {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      transform: scale(1.02);
     }
 
     .badge-group {
@@ -124,20 +180,21 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.2rem;
+      margin-top: 2.5rem;
     }
 
     .badge {
-      background: white;
-      padding: 0.6rem 1.8rem;
+      background: var(--bg-card);
+      padding: 0.5rem 1.6rem;
       border-radius: 60px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border-subtle);
       font-weight: 500;
-      color: #1e293b;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
     }
 
     .badge i {
-      color: #2563eb;
+      color: var(--accent-teal);
       margin-right: 0.5rem;
     }
 
@@ -145,21 +202,21 @@
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
-      margin: 3.5rem 0 1.5rem 0;
+      margin: 4rem 0 1.5rem 0;
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
 
     .section-title i {
-      color: #2563eb;
+      color: var(--accent-teal);
       font-size: 2rem;
     }
 
     .section-sub {
-      color: #475569;
+      color: var(--text-secondary);
       margin-bottom: 2rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     /* cards grid */
@@ -171,151 +228,92 @@
     }
 
     .card {
-      background: white;
-      border-radius: 28px;
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
       padding: 2rem 1.8rem;
-      border: 1px solid #edf2f7;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.02);
-      transition: 0.25s ease;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+      box-shadow: var(--shadow-glow);
     }
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: #cbd5e1;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08);
+      border-color: var(--accent-blue);
+      box-shadow: 0 20px 40px -12px rgba(0, 100, 255, 0.15);
     }
 
     .card-icon {
-      font-size: 2.5rem;
-      color: #2563eb;
+      font-size: 2.6rem;
+      color: var(--accent-teal);
       margin-bottom: 1rem;
     }
 
     .card h3 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
     .card p {
-      color: #475569;
+      color: var(--text-secondary);
       margin-bottom: 1.2rem;
     }
 
     .card-tag {
-      background: #eef2ff;
-      color: #2563eb;
+      background: rgba(43, 122, 255, 0.15);
+      color: var(--accent-blue);
       padding: 0.25rem 1rem;
       border-radius: 40px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       display: inline-block;
+      letter-spacing: 0.3px;
     }
 
-    /* --- projection panel (MNC style) --- */
-    .projection-panel {
-      background: white;
-      border-radius: 32px;
-      padding: 2rem 2rem 2.5rem;
-      margin: 3rem 0 2rem;
-      border: 1px solid #e9edf2;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.02);
-    }
-
-    .projection-panel .flex-title {
+    /* wide product card */
+    .product-wide {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 2.2rem 2.5rem;
+      border: 1px solid var(--border-subtle);
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      transition: var(--transition);
     }
 
-    .projection-panel h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
+    .product-wide:hover {
+      border-color: var(--accent-teal);
+      transform: scale(1.005);
     }
 
-    .projection-panel h2 i {
-      color: #2563eb;
-      margin-right: 0.5rem;
-    }
-
-    .status-badge {
-      background: #dcfce7;
-      color: #15803d;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
+    .product-wide .info h3 {
+      font-size: 1.6rem;
       font-weight: 600;
-      font-size: 0.9rem;
     }
 
-    .table-wrap {
-      overflow-x: auto;
-      margin: 0.5rem 0;
+    .product-wide .info p {
+      color: var(--text-secondary);
+      max-width: 500px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-
-    th {
-      text-align: left;
-      padding: 1rem 0.5rem 0.8rem 0.5rem;
-      font-weight: 600;
-      color: #1e293b;
-      border-bottom: 2px solid #e2e8f0;
-    }
-
-    td {
-      padding: 1rem 0.5rem;
-      border-bottom: 1px solid #edf2f7;
-      color: #1e293b;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    .highlight-cell {
-      font-weight: 600;
-      color: #0b1e2e;
-    }
-
-    .trend-up {
-      background: #e6f7ec;
-      color: #0b7e3d;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-    }
-
-    .trend-steady {
-      background: #fef9e7;
-      color: #7c5d0e;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-    }
-
-    .projection-foot {
-      margin-top: 1.4rem;
-      font-size: 0.9rem;
-      color: #64748b;
+    .product-wide .meta {
       display: flex;
-      gap: 1.8rem;
+      align-items: center;
+      gap: 2rem;
       flex-wrap: wrap;
     }
 
-    .projection-foot i {
-      color: #2563eb;
-      margin-right: 0.3rem;
+    .product-wide .meta .pill {
+      background: rgba(0, 212, 182, 0.1);
+      color: var(--accent-teal);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
 
     /* stats row */
@@ -323,61 +321,126 @@
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      justify-content: space-between;
-      background: #f1f5f9;
+      justify-content: space-around;
+      background: var(--bg-card);
       border-radius: 40px;
-      padding: 2rem 2.5rem;
-      margin: 2.5rem 0 1rem;
+      padding: 2.5rem 2rem;
+      margin: 3rem 0 1.5rem;
+      border: 1px solid var(--border-subtle);
     }
 
-    .stats-row div {
-      flex: 1 1 120px;
+    .stats-row .stat-item {
+      text-align: center;
     }
 
     .stats-row .num {
       font-weight: 700;
+      font-size: 2.4rem;
+      color: white;
+      letter-spacing: -0.01em;
+    }
+
+    .stats-row .num i {
+      color: var(--accent-teal);
       font-size: 2rem;
-      color: #0b1e2e;
+      margin-right: 0.3rem;
     }
 
     .stats-row .label {
-      color: #475569;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
     }
 
     /* footer */
     .footer {
-      margin-top: 4rem;
-      padding: 2rem 0 2.5rem;
-      border-top: 1px solid #e2e8f0;
-      text-align: center;
-      color: #64748b;
-      font-size: 0.95rem;
+      margin-top: 4.5rem;
+      padding: 2.5rem 0 2rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
     }
 
-    .footer i {
-      margin: 0 0.2rem;
-      color: #2563eb;
+    .footer .col h4 {
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: white;
     }
 
-    .footer a {
-      color: #2563eb;
+    .footer .col a {
+      display: block;
+      color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      transition: var(--transition);
     }
+
+    .footer .col a:hover {
+      color: white;
+    }
+
+    .footer .newsletter input {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      color: white;
+      width: 200px;
+      font-family: var(--font);
+    }
+
+    .footer .newsletter button {
+      background: var(--accent-blue);
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 60px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .footer .newsletter button:hover {
+      background: #1a5fdf;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.5rem 0 1rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .footer-bottom i {
+      color: var(--accent-teal);
+    }
+
+    /* animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
 
     @media (max-width: 700px) {
-      .nav-flex {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 1rem 1.5rem;
-      }
-      .hero h1 {
-        font-size: 2.5rem;
-      }
+      .nav-flex { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; gap: 1rem 1.5rem; }
+      .hero h1 { font-size: 2.6rem; }
+      .product-wide { flex-direction: column; align-items: flex-start; }
+      .footer { flex-direction: column; }
     }
   </style>
 </head>
@@ -385,13 +448,11 @@
   <!-- NAV -->
   <nav class="navbar">
     <div class="container nav-flex">
-      <div class="logo">
-        <i class="fas fa-cubes"></i> Nex<span>ify</span>
-      </div>
+      <div class="logo"><i class="fas fa-cubes"></i> Nex<span>ify</span></div>
       <div class="nav-links">
+        <a href="#">Solutions</a>
         <a href="#">Products</a>
         <a href="#">Services</a>
-        <a href="#">Solutions</a>
         <a href="#">Insights</a>
         <a href="#" class="nav-cta"><i class="fas fa-rocket" style="margin-right: 6px;"></i> Contact</a>
       </div>
@@ -400,177 +461,190 @@
 
   <main class="container">
     <!-- HERO -->
-    <section class="hero">
-      <h1><i class="fas fa-code"></i> Enterprise IT · <br>built for the next decade</h1>
-      <p>AI-native platforms, cloud infrastructure, and security — trusted by 200+ global enterprises.</p>
+    <section class="hero fade-in">
+      <h1><i class="fas fa-code"></i> Enterprise AI & <br>Cloud at scale</h1>
+      <p>We build generative AI platforms, cloud-native infrastructure, and zero-trust security for the world's leading enterprises.</p>
+      <a href="#" class="hero-cta">Explore solutions <i class="fas fa-arrow-right"></i></a>
       <div class="badge-group">
         <span class="badge"><i class="fas fa-check-circle"></i> 99.97% uptime</span>
-        <span class="badge"><i class="fas fa-users"></i> 500+ engineers</span>
-        <span class="badge"><i class="fas fa-globe"></i> 14 countries</span>
+        <span class="badge"><i class="fas fa-brain"></i> 200+ AI models</span>
+        <span class="badge"><i class="fas fa-globe"></i> 14 regions</span>
         <span class="badge"><i class="fas fa-cloud"></i> AWS · Azure · GCP</span>
       </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <div class="section-title">
-      <i class="fas fa-microchip"></i> Products
-    </div>
+    <!-- STRATEGIC PILLARS (Services) -->
+    <div class="section-title fade-in"><i class="fas fa-cogs"></i> Strategic pillars</div>
     <div class="grid-3">
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-brain"></i></div>
-        <h3>Nexus AI</h3>
-        <p>Generative AI & LLM ops platform for enterprise workflows. Fine-tuned, secure, and scalable.</p>
-        <span class="card-tag"><i class="fas fa-star"></i> v3.2</span>
+      <div class="card fade-in delay-1">
+        <div class="card-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI Integration</h3>
+        <p>Custom generative AI, LLM fine-tuning, and copilot deployment for enterprise workflows.</p>
+        <span class="card-tag"><i class="fas fa-star"></i> GPT-4 · Claude</span>
       </div>
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
-        <h3>DataSphere</h3>
-        <p>Real-time analytics & data lakehouse with built-in ML pipelines. Petabyte-scale ready.</p>
-        <span class="card-tag"><i class="fas fa-bolt"></i> low-latency</span>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>FortiGate Cloud</h3>
-        <p>Zero-trust security suite with automated threat response and compliance monitoring.</p>
-        <span class="card-tag"><i class="fas fa-lock"></i> SOC2</span>
-      </div>
-    </div>
-
-    <!-- SERVICES -->
-    <div class="section-title" style="margin-top: 3rem;">
-      <i class="fas fa-concierge-bell"></i> Services
-    </div>
-    <div class="grid-3">
-      <div class="card">
+      <div class="card fade-in delay-2">
         <div class="card-icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <h3>Cloud Migration</h3>
-        <p>End-to-end cloud strategy, lift-and-shift or re-architecture, with FinOps optimization.</p>
+        <p>End-to-end cloud strategy, lift-and-shift, re-architecture, and FinOps optimization.</p>
         <span class="card-tag"><i class="fas fa-clock"></i> 4‑week sprints</span>
       </div>
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-code-branch"></i></div>
-        <h3>DevSecOps</h3>
-        <p>CI/CD pipeline design, infrastructure as code, and security baked into every layer.</p>
-        <span class="card-tag"><i class="fas fa-tools"></i> GitOps</span>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-robot"></i></div>
-        <h3>AI Advisory</h3>
-        <p>Strategy, POC, and production deployment of custom AI/ML solutions for your domain.</p>
-        <span class="card-tag"><i class="fas fa-microscope"></i> R&D</span>
+      <div class="card fade-in delay-3">
+        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Cyber Resilience</h3>
+        <p>Zero-trust security, threat monitoring, and compliance (SOC2, ISO, GDPR).</p>
+        <span class="card-tag"><i class="fas fa-lock"></i> 24/7 SOC</span>
       </div>
     </div>
 
-    <!-- PROJECTION READY · GOOGLE APPS SCRIPT STYLE -->
-    <div class="projection-panel">
-      <div class="flex-title">
-        <h2><i class="fas fa-chart-line"></i> Projection Ready · FY 2026</h2>
-        <span class="status-badge"><i class="fas fa-sync-alt fa-fw"></i> live forecast</span>
+    <!-- PRODUCT SHOWCASE (wide cards) -->
+    <div class="section-title fade-in" style="margin-top: 3.5rem;"><i class="fas fa-microchip"></i> Featured solutions</div>
+    <div class="product-wide fade-in delay-1">
+      <div class="info">
+        <h3><i class="fas fa-brain" style="color: var(--accent-teal); margin-right: 0.5rem;"></i> Nexus AI</h3>
+        <p>Generative AI orchestration with fine-tuned models, RAG pipelines, and enterprise guardrails.</p>
       </div>
-      <p class="section-sub" style="margin-bottom: 1.2rem;">
-        <i class="fas fa-database" style="color: #2563eb;"></i> 
-        Revenue & growth projections — data refreshed via Google Apps Script (simulated)
-      </p>
-      <div class="table-wrap">
-        <table>
+      <div class="meta">
+        <span class="pill"><i class="fas fa-check-circle"></i> v3.2</span>
+        <span class="pill"><i class="fas fa-bolt"></i> 120ms latency</span>
+      </div>
+    </div>
+
+    <div class="product-wide fade-in delay-2">
+      <div class="info">
+        <h3><i class="fas fa-database" style="color: var(--accent-teal); margin-right: 0.5rem;"></i> DataSphere</h3>
+        <p>Real-time data lakehouse with built-in ML pipelines and petabyte-scale analytics.</p>
+      </div>
+      <div class="meta">
+        <span class="pill"><i class="fas fa-chart-line"></i> 10k+ deployments</span>
+        <span class="pill"><i class="fas fa-cloud"></i> multi-cloud</span>
+      </div>
+    </div>
+
+    <div class="product-wide fade-in delay-3">
+      <div class="info">
+        <h3><i class="fas fa-shield-alt" style="color: var(--accent-teal); margin-right: 0.5rem;"></i> FortiGate Cloud</h3>
+        <p>Zero-trust security suite with automated threat response and compliance monitoring.</p>
+      </div>
+      <div class="meta">
+        <span class="pill"><i class="fas fa-lock"></i> SOC2 · ISO</span>
+        <span class="pill"><i class="fas fa-bolt"></i> 99.99% SLA</span>
+      </div>
+    </div>
+
+    <!-- GLOBAL IMPACT STATS -->
+    <div class="stats-row fade-in">
+      <div class="stat-item"><div class="num"><i class="fas fa-cloud"></i> 10k+</div><div class="label">cloud deployments</div></div>
+      <div class="stat-item"><div class="num"><i class="fas fa-check-circle"></i> 99.9%</div><div class="label">uptime (global)</div></div>
+      <div class="stat-item"><div class="num"><i class="fas fa-users"></i> 500+</div><div class="label">enterprise clients</div></div>
+      <div class="stat-item"><div class="num"><i class="fas fa-globe"></i> 14</div><div class="label">regions</div></div>
+    </div>
+
+    <!-- PROJECTION READY (Google Apps Script style) -->
+    <div style="background: var(--bg-card); border-radius: var(--radius-card); padding: 2rem 2rem 2.2rem; margin: 3rem 0 1rem; border: 1px solid var(--border-subtle);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.8rem; font-weight: 700;"><i class="fas fa-chart-line" style="color: var(--accent-teal);"></i> Projection Ready · FY 2026</h2>
+        <span style="background: rgba(0, 212, 182, 0.15); color: var(--accent-teal); padding: 0.3rem 1.2rem; border-radius: 40px; font-weight: 600; font-size: 0.85rem;"><i class="fas fa-sync-alt fa-fw"></i> live forecast</span>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;"><i class="fas fa-database" style="color: var(--accent-teal);"></i> Revenue & growth projections — Google Apps Script data layer (simulated)</p>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
           <thead>
-            <tr>
-              <th>Product / Service</th>
-              <th>Q1 2026</th>
-              <th>Q2 2026</th>
-              <th>Q3 2026</th>
-              <th>Q4 2026</th>
-              <th>YoY trend</th>
+            <tr style="border-bottom: 2px solid var(--border-subtle);">
+              <th style="text-align: left; padding: 0.8rem 0.5rem;">Product / Service</th>
+              <th style="text-align: left; padding: 0.8rem 0.5rem;">Q1 2026</th>
+              <th style="text-align: left; padding: 0.8rem 0.5rem;">Q2 2026</th>
+              <th style="text-align: left; padding: 0.8rem 0.5rem;">Q3 2026</th>
+              <th style="text-align: left; padding: 0.8rem 0.5rem;">Q4 2026</th>
+              <th style="text-align: left; padding: 0.8rem 0.5rem;">YoY trend</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="highlight-cell"><i class="fas fa-brain" style="color: #2563eb; width: 20px;"></i> Nexus AI</td>
-              <td>$4.2M</td>
-              <td>$5.1M</td>
-              <td>$6.3M</td>
-              <td>$8.0M</td>
-              <td><span class="trend-up"><i class="fas fa-arrow-up"></i> +34%</span></td>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 0.9rem 0.5rem; font-weight: 600;"><i class="fas fa-brain" style="color: var(--accent-teal); width: 20px;"></i> Nexus AI</td>
+              <td>$4.2M</td><td>$5.1M</td><td>$6.3M</td><td>$8.0M</td>
+              <td><span style="background: #0f2a1f; color: #4ade80; padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600;"><i class="fas fa-arrow-up"></i> +34%</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 0.9rem 0.5rem; font-weight: 600;"><i class="fas fa-database" style="color: var(--accent-teal);"></i> DataSphere</td>
+              <td>$3.8M</td><td>$4.3M</td><td>$4.9M</td><td>$5.6M</td>
+              <td><span style="background: #0f2a1f; color: #4ade80; padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600;"><i class="fas fa-arrow-up"></i> +22%</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 0.9rem 0.5rem; font-weight: 600;"><i class="fas fa-shield-alt" style="color: var(--accent-teal);"></i> FortiGate Cloud</td>
+              <td>$2.9M</td><td>$3.2M</td><td>$3.5M</td><td>$4.0M</td>
+              <td><span style="background: #1e2a3a; color: #94a3b8; padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600;"><i class="fas fa-minus"></i> +12%</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 0.9rem 0.5rem; font-weight: 600;"><i class="fas fa-cloud-upload-alt" style="color: var(--accent-teal);"></i> Cloud Migration</td>
+              <td>$5.5M</td><td>$6.0M</td><td>$6.8M</td><td>$7.9M</td>
+              <td><span style="background: #0f2a1f; color: #4ade80; padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600;"><i class="fas fa-arrow-up"></i> +28%</span></td>
             </tr>
             <tr>
-              <td class="highlight-cell"><i class="fas fa-chart-pie" style="color: #2563eb;"></i> DataSphere</td>
-              <td>$3.8M</td>
-              <td>$4.3M</td>
-              <td>$4.9M</td>
-              <td>$5.6M</td>
-              <td><span class="trend-up"><i class="fas fa-arrow-up"></i> +22%</span></td>
-            </tr>
-            <tr>
-              <td class="highlight-cell"><i class="fas fa-shield-alt" style="color: #2563eb;"></i> FortiGate Cloud</td>
-              <td>$2.9M</td>
-              <td>$3.2M</td>
-              <td>$3.5M</td>
-              <td>$4.0M</td>
-              <td><span class="trend-steady"><i class="fas fa-minus"></i> +12%</span></td>
-            </tr>
-            <tr>
-              <td class="highlight-cell"><i class="fas fa-cloud-upload-alt" style="color: #2563eb;"></i> Cloud Migration</td>
-              <td>$5.5M</td>
-              <td>$6.0M</td>
-              <td>$6.8M</td>
-              <td>$7.9M</td>
-              <td><span class="trend-up"><i class="fas fa-arrow-up"></i> +28%</span></td>
-            </tr>
-            <tr>
-              <td class="highlight-cell"><i class="fas fa-code-branch" style="color: #2563eb;"></i> DevSecOps</td>
-              <td>$2.7M</td>
-              <td>$3.0M</td>
-              <td>$3.4M</td>
-              <td>$3.9M</td>
-              <td><span class="trend-steady"><i class="fas fa-minus"></i> +18%</span></td>
-            </tr>
-            <tr>
-              <td class="highlight-cell" style="font-weight: 700;"><i class="fas fa-cubes" style="color: #2563eb;"></i> Total Revenue</td>
-              <td><strong>$19.1M</strong></td>
-              <td><strong>$21.6M</strong></td>
-              <td><strong>$24.9M</strong></td>
-              <td><strong>$29.4M</strong></td>
-              <td><span class="trend-up" style="background: #dbeafe; color: #1d4ed8;"><i class="fas fa-arrow-up"></i> +28% YoY</span></td>
+              <td style="padding: 0.9rem 0.5rem; font-weight: 700;"><i class="fas fa-cubes" style="color: var(--accent-teal);"></i> Total Revenue</td>
+              <td><strong>$19.1M</strong></td><td><strong>$21.6M</strong></td><td><strong>$24.9M</strong></td><td><strong>$29.4M</strong></td>
+              <td><span style="background: rgba(43, 122, 255, 0.2); color: var(--accent-blue); padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600;"><i class="fas fa-arrow-up"></i> +28% YoY</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="projection-foot">
-        <span><i class="fas fa-check-circle"></i> Projected ARR: $94M</span>
+      <div style="margin-top: 1.2rem; font-size: 0.9rem; color: var(--text-secondary); display: flex; gap: 1.8rem; flex-wrap: wrap;">
+        <span><i class="fas fa-check-circle" style="color: var(--accent-teal);"></i> Projected ARR: $94M</span>
         <span><i class="fas fa-calendar-alt"></i> Updated: 23 June 2026 · 14:32 UTC</span>
         <span><i class="fas fa-google"></i> Google Apps Script sync active</span>
       </div>
     </div>
 
-    <!-- MNC stats -->
-    <div class="stats-row">
-      <div><div class="num">200+</div><div class="label">enterprise clients</div></div>
-      <div><div class="num">99.97%</div><div class="label">platform uptime</div></div>
-      <div><div class="num">4.9/5</div><div class="label">client satisfaction</div></div>
-      <div><div class="num">14</div><div class="label">global offices</div></div>
-    </div>
-
   </main>
 
   <!-- FOOTER -->
-  <footer class="container footer">
-    <p>
-      <i class="fas fa-cubes"></i> Nexify — <span style="font-weight: 500; color: #0b1e2e;">MNC IT</span> &nbsp;·&nbsp; 
-      <i class="fas fa-map-pin"></i> 1 Nexus Way, Palo Alto, CA &nbsp;·&nbsp; 
-      <i class="fas fa-envelope"></i> <a href="#">hello@nexify.io</a> &nbsp;·&nbsp; 
-      <i class="fas fa-phone-alt"></i> +1 (800) 555‑NEXUS
-    </p>
-    <p style="margin-top: 0.8rem; font-size: 0.85rem;">
+  <footer class="container" style="margin-top: 3rem;">
+    <div class="footer">
+      <div class="col">
+        <h4><i class="fas fa-cubes" style="color: var(--accent-teal);"></i> Nexify</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Partners</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="col">
+        <h4>Solutions</h4>
+        <a href="#">AI & ML</a>
+        <a href="#">Cloud Infrastructure</a>
+        <a href="#">Cybersecurity</a>
+        <a href="#">Data Analytics</a>
+      </div>
+      <div class="col">
+        <h4>Support</h4>
+        <a href="#">Documentation</a>
+        <a href="#">Status</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+      <div class="col newsletter">
+        <h4>Stay ahead</h4>
+        <input type="email" placeholder="Enter email" style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.6rem 1rem; border-radius: 60px; color: white; width: 100%; max-width: 220px; margin-bottom: 0.6rem; font-family: var(--font);">
+        <button style="background: var(--accent-blue); border: none; padding: 0.6rem 1.5rem; border-radius: 60px; color: white; font-weight: 600; cursor: pointer;">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <i class="fas fa-google"></i> Deployed with Google Apps Script · projection-ready · © 2026 Nexify Inc.
-    </p>
+    </div>
   </footer>
 
-  <!-- small script: projection ready notice -->
   <script>
-    (function() {
-      console.log('✅ Nexify · projection-ready dashboard (Google Apps Script style)');
-      console.log('📊 Data layer active — static demo with embedded projection.');
-    })();
+    // subtle fade-in on scroll (Intersection Observer)
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.15 });
+      faders.forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 </html>
